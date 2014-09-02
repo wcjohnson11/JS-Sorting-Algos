@@ -44,6 +44,7 @@ function CArray (numElements) {
 	this.clear = clear;
 	this.setData = setData;
 	this.swap = swap;
+	this.bubblesort = bubblesort;
 
 	for (var i = 0; i < this.numElements; i++) {
 		this.dataStore[i] = i;
@@ -53,3 +54,19 @@ function CArray (numElements) {
 //ex
 var myNums = new CArray(100);
 myNums.setData();
+
+//bubblesort
+function bubblesort () {
+  var numElements = this.dataStore.length;
+  var temp;
+
+  for (var outer = numElements; outer >= 2; --outer) {
+    for (var inner = 0; inner <= outer - 1; ++inner) {
+      if (this.dataStore[inner] > this.dataStore[inner + 1]) {
+       swap (this.dataStore, inner, inner + 1);
+      }
+    }
+    // Uncomment to Log out each iteration
+    // console.log (this.toString());
+  }
+}
